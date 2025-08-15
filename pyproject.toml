@@ -5,22 +5,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pysbr"
 version = "0.0.1"
-description = "Python client for SBR lines/markets"
+description = "Python client for SportsBookReview lines and markets"
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "Joshua Wozniak" }]
 license = "MIT"
 dependencies = [
   "requests>=2.28",
-  "pandas>=1.5",
+  "pandas>=1.5"
 ]
 
 [tool.setuptools]
-packages = ["pysbr"]  # now this directory actually exists
+packages = ["pysbr"]
 
 [tool.setuptools.package-data]
-# include any non-.py files you need at runtime
-pysbr = ["queries/**/*", "config/**/*", "*.txt", "*.json", "*.yaml", "*.yml"]
+pysbr = [
+  "queries/**/*",
+  "config/**/*",
+  "*.txt",
+  "*.json",
+  "*.yaml",
+  "*.yml"
+]
 
-[tool.setuptools.include-package-data]
-# not strictly required with package-data above, but fine to keep
+# EITHER omit the next line entirely OR set it to a boolean.
+# Do NOT make it a table/object.
+[tool.setuptools.include-package-data]  # <-- DELETE this header if it exists
+
+# If you want include-package-data behavior, replace the header above with:
+# include-package-data = true
