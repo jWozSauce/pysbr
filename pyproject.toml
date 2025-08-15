@@ -1,6 +1,5 @@
-# pyproject.toml
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,12 +9,18 @@ description = "Python client for SBR lines/markets"
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "Joshua Wozniak" }]
-license = { text = "MIT" }
+license = "MIT"
 dependencies = [
-  "pandas>=1.5",
   "requests>=2.28",
-  # add anything else you import (e.g., numpy, pytz, etc.)
+  "pandas>=1.5",
 ]
 
 [tool.setuptools]
-packages = ["pysbr"]  # because your package is in ./pysbr
+packages = ["pysbr"]  # now this directory actually exists
+
+[tool.setuptools.package-data]
+# include any non-.py files you need at runtime
+pysbr = ["queries/**/*", "config/**/*", "*.txt", "*.json", "*.yaml", "*.yml"]
+
+[tool.setuptools.include-package-data]
+# not strictly required with package-data above, but fine to keep
