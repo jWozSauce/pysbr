@@ -1,0 +1,21 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysbr"
+version = "0.0.1"
+description = "Python client for SBR lines/markets"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Joshua Wozniak" }]
+license = { text = "MIT" }
+dependencies = [
+  "pandas>=1.5",
+  "requests>=2.28",
+  # add anything else you import (e.g., numpy, pytz, etc.)
+]
+
+[tool.setuptools]
+packages = ["pysbr"]  # because your package is in ./pysbr
