@@ -4,33 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pysbr"
-version = "0.0.1"
-description = "Python client for SportsBookReview lines and markets"
-readme = "README.md"
-requires-python = ">=3.9"
-authors = [{ name = "Joshua Wozniak" }]
-license = "MIT"
+version = "0.0.0"
 dependencies = [
-  "requests>=2.28",
-  "pandas>=1.5"
+  "gql[all]",
+  "fake-useragent",
+  "pandas",
+  "pytz",
+  "PyYAML"
 ]
 
-[tool.setuptools]
-packages = ["pysbr"]
 
-[tool.setuptools.package-data]
-pysbr = [
-  "queries/**/*",
-  "config/**/*",
-  "*.txt",
-  "*.json",
-  "*.yaml",
-  "*.yml"
-]
-
-# EITHER omit the next line entirely OR set it to a boolean.
-# Do NOT make it a table/object.
-[tool.setuptools.include-package-data]  # <-- DELETE this header if it exists
-
-# If you want include-package-data behavior, replace the header above with:
-# include-package-data = true
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pysbr*"]
